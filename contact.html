@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact WanderLux Travel Agency">
+    <title>Contact Us - WanderLux Travel Agency</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">WanderLux Travel</div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="destinations.html">Destinations</a></li>
+                <li><a href="calculator.html">Trip Calculator</a></li>
+                <li><a href="appointment.html">Book Appointment</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>We're here to help plan your perfect holiday</p>
+        </div>
+    </section>
+
+    <section class="contact-info">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h3>📍 Visit Us</h3>
+                    <p>123 Waterline Avenue<br>Sydney NSW 2000<br>Australia</p>
+                </div>
+                <div class="contact-item">
+                    <h3>📞 Call Us</h3>
+                    <p>Phone: +61 45 678 9123<br>Mon-Fri: 9am-6pm<br>Sat: 10am-4pm</p>
+                </div>
+                <div class="contact-item">
+                    <h3>📧 Email Us</h3>
+                    <p>info@wanderlux.com.au<br>bookings@wanderlux.com.au<br>support@wanderlux.com.au</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="form-section">
+        <div class="container">
+            <h2>Send Us a Message</h2>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="contactName">Name <span class="required">*</span></label>
+                    <input type="text" id="contactName" required>
+                    <span class="error-message" id="contactNameError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="contactEmail">Email <span class="required">*</span></label>
+                    <input type="email" id="contactEmail" required>
+                    <span class="error-message" id="contactEmailError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="contactSubject">Subject <span class="required">*</span></label>
+                    <select id="contactSubject" required>
+                        <option value="">Select subject</option>
+                        <option value="general">General Inquiry</option>
+                        <option value="booking">Booking Question</option>
+                        <option value="package">Package Information</option>
+                        <option value="support">Customer Support</option>
+                    </select>
+                    <span class="error-message" id="contactSubjectError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="contactMessage">Message <span class="required">*</span></label>
+                    <textarea id="contactMessage" rows="6" required></textarea>
+                    <span class="error-message" id="contactMessageError"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+
+            <div id="contactSuccess" style="display: none;">
+                <div class="success-box">
+                    <h2>✓ Message Sent!</h2>
+                    <p>Thank you for contacting us! We'll respond within 24 hours.</p>
+                    <button onclick="resetContactForm()" class="btn btn-primary">Send Another Message</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <div class="container">
+            <h2>Find Us</h2>
+        </div>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.5587265276304!2d151.20699!3d-33.8678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzPCsDUyJzA0LjEiUyAxNTHCsDEyJzI1LjIiRQ!5e0!3m2!1sen!2sau!4v1234567890" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" title="WanderLux Location"></iframe>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>WanderLux Travel</h3>
+                    <p>Creating extraordinary travel experiences and memories since 2025</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="destinations.html">Destinations</a></li>
+                        <li><a href="calculator.html">Trip Calculator</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>123 Waterline Avenue, Sydney NSW 2000</p>
+                    <p>Phone: +61 45 678 9123</p>
+                    <p>Email: info@wanderlux.com.au</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 WanderLux Travel Agency. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            let isValid = true;
+            const name = document.getElementById('contactName');
+            const email = document.getElementById('contactEmail');
+            const subject = document.getElementById('contactSubject');
+            const message = document.getElementById('contactMessage');
+            
+            document.querySelectorAll('.error-message').forEach(msg => {
+                msg.textContent = '';
+                msg.classList.remove('show');
+            });
+            document.querySelectorAll('.error').forEach(input => {
+                input.classList.remove('error');
+            });
+            
+            if (!name.value.trim()) {
+                showError('contactName', 'contactNameError', 'Name is required');
+                isValid = false;
+            }
+            
+            if (!email.value.trim() || !email.value.includes('@')) {
+                showError('contactEmail', 'contactEmailError', 'Valid email is required');
+                isValid = false;
+            }
+            
+            if (!subject.value) {
+                showError('contactSubject', 'contactSubjectError', 'Subject is required');
+                isValid = false;
+            }
+            
+            if (!message.value.trim()) {
+                showError('contactMessage', 'contactMessageError', 'Message is required');
+                isValid = false;
+            }
+            
+            if (isValid) {
+                document.getElementById('contactForm').style.display = 'none';
+                document.getElementById('contactSuccess').style.display = 'block';
+            }
+        });
+
+        function showError(inputId, errorId, text) {
+            document.getElementById(inputId).classList.add('error');
+            const errorElem = document.getElementById(errorId);
+            errorElem.textContent = text;
+            errorElem.classList.add('show');
+        }
+
+        function resetContactForm() {
+            document.getElementById('contactForm').reset();
+            document.getElementById('contactForm').style.display = 'block';
+            document.getElementById('contactSuccess').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
